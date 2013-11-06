@@ -1,0 +1,77 @@
+{
+  "name" : "links",
+  "description" : "A set of all wikipedia pages",
+  "keys_format" : {
+    "org.kiji.schema.avro.RowKeyFormat2" : {
+      "encoding" : "FORMATTED",
+      "salt" : {
+        "hash_size" : 4
+      },
+      "components" : [ {
+        "name" : "page",
+        "type" : "STRING"
+      } ]
+    }
+  },
+  "locality_groups" : [ {
+    "id" : 1,
+    "name" : "default",
+    "description" : "Default locality",
+    "in_memory" : false,
+    "max_versions" : 2147483647,
+    "ttl_seconds" : 2147483647,
+    "compression_type" : "NONE",
+    "families" : [ {
+      "id" : 1,
+      "name" : "info",
+      "columns" : [ {
+        "id" : 1,
+        "name" : "page",
+        "description" : "Id of the wikipedia page",
+        "column_schema" : {
+          "storage" : "UID",
+          "type" : "INLINE",
+          "value" : '"string"'
+        }
+      }, {
+        "id" : 2,
+        "name" : "title",
+        "description" : "title of wikipedia page",
+        "column_schema" : {
+          "storage" : "UID",
+          "type" : "INLINE",
+          "value" : '"string"'
+        }
+      }, {
+        "id" : 3,
+        "name" : "score",
+        "description" : "score of wikipedia page",
+        "column_schema" : {
+          "storage" : "UID",
+          "type" : "INLINE",
+          "value" : '"double"'
+        }
+      }, {
+        "id" : 4,
+        "name" : "links",
+        "description" : "Ids of outlinks",
+        "column_schema" : {
+          "storage" : "UID",
+          "type" : "INLINE",
+          "value" : '"string"'
+        }
+      }, {
+        "id" : 5,
+        "name" : "numoutlinks",
+        "description" : "Number of outlinks",
+        "column_schema" : {
+          "storage" : "UID",
+          "type" : "INLINE",
+          "value" : '"int"'
+        }
+      } ]
+    } ]
+  } ],
+  "version" : "layout-1.1",
+  "layout_id" : "1"
+}
